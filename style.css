@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+}
+  
+html, body {
+    height: 100%; 
+    overflow: hidden; 
+} 
+body {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #74ABE2, #5563DE); 
+    /* 텍스트 드래그 막기 */
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
+}
+  
+.slider {
+    width: 500px; 
+    text-align: center;
+    overflow: hidden;
+}
+  
+.slider > a {
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
+    background: black;
+    color: aliceblue;
+    border: 2px white solid;
+    font-weight: 800;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+  
+.slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+  
+.slides::-webkit-scrollbar {
+    height: 10px;
+}
+  
+.slides::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+    border: #eee 2px solid;
+}
+  
+.slides > div {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 500px;
+    height: 300px;
+    border-radius: 10px;
+    background: #eee;
+    border: #000000 4px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: midnightblue;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#slide1{
+    background-color: #ff7979
+}
+
+#slide2{
+    background-color: #ffbe76
+}
+
+#slide3{
+    background-color: #7ed6df
+}
+
+#slide4{
+    background-color: #22a6b3
+}
+
+#slide5{
+    background-color: #be2edd
+}
+
+#slide6{
+    background-color: #4834d3
+}
+
+.carousel-open{
+    overflow: hidden;
+}
+
+.carousel-open:checked + .carousel-item {
+    position: static;
+    opacity: 100;
+}
+
+.carousel-control {
+    width: 40px;
+    height: 40px;
+    background: black;
+    border-radius: 50%;
+    color: #fff;
+    border: #fff 2px solid;
+    cursor: pointer;
+    display: none;
+    font-size: 15px;
+    line-height: 35px;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+}
+
+.carousel-control.prev {
+    left: 400px;
+}
+.carousel-control.next {
+    right: 400px;
+}
+
+.carousel-control:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: red;
+}
+
+#carousel-1:checked ~ .control-1,
+#carousel-2:checked ~ .control-2,
+#carousel-3:checked ~ .control-3,
+#carousel-4:checked ~ .control-4,
+#carousel-5:checked ~ .control-5,
+#carousel-6:checked ~ .control-6 {
+    display: block;
+}
+  

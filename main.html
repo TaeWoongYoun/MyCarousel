@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCarousel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="slider">
+        <!-- 버튼영역 -->
+        <a href="#slide1">1</a>
+        <a href="#slide2">2</a>
+        <a href="#slide3">3</a>
+        <a href="#slide4">4</a>
+        <a href="#slide5">5</a>
+        <a href="#slide6">6</a>
+        <!-- 캐러셀영역 -->
+        <div class="slides">
+            <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" checked="checked">
+            <div id="slide1">
+            one
+            </div>
+            <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true">
+            <div id="slide2">
+            two
+            </div>
+            <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true">
+            <div id="slide3">
+            teree
+            </div>
+            <input class="carousel-open" type="radio" id="carousel-4" name="carousel" aria-hidden="true">
+            <div id="slide4">
+            four
+            </div>
+            <input class="carousel-open" type="radio" id="carousel-5" name="carousel" aria-hidden="true">
+            <div id="slide5">
+            five
+            </div>
+            <input class="carousel-open" type="radio" id="carousel-6" name="carousel" aria-hidden="true">
+            <div id="slide6">
+            six
+            </div>
+            <label for="carousel-6" class="carousel-control prev control-1">prev</label>
+            <label for="carousel-2" class="carousel-control next control-1">next</label>
+            <label for="carousel-1" class="carousel-control prev control-2">prev</label>
+            <label for="carousel-3" class="carousel-control next control-2">next</label>
+            <label for="carousel-2" class="carousel-control prev control-3">prev</label>
+            <label for="carousel-4" class="carousel-control next control-3">next</label>
+            <label for="carousel-3" class="carousel-control prev control-4">prev</label>
+            <label for="carousel-5" class="carousel-control next control-4">next</label>
+            <label for="carousel-4" class="carousel-control prev control-5">prev</label>
+            <label for="carousel-6" class="carousel-control next control-5">next</label>
+            <label for="carousel-5" class="carousel-control prev control-6">prev</label>
+            <label for="carousel-1" class="carousel-control next control-6">next</label>
+        </div>
+    </div>
+
+    <style>
+
+* {
+    box-sizing: border-box;
+}
+  
+html, body {
+    height: 100%; 
+    overflow: hidden; 
+} 
+body {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #74ABE2, #5563DE); 
+    /* 텍스트 드래그 막기 */
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
+}
+  
+.slider {
+    width: 500px; 
+    text-align: center;
+    overflow: hidden;
+}
+  
+.slider > a {
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
+    background: black;
+    color: aliceblue;
+    border: 2px white solid;
+    font-weight: 800;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+  
+.slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+  
+.slides::-webkit-scrollbar {
+    height: 10px;
+}
+  
+.slides::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+    border: #eee 2px solid;
+}
+  
+.slides > div {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 500px;
+    height: 300px;
+    border-radius: 10px;
+    background: #eee;
+    border: #000000 4px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: midnightblue;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.carousel-open{
+    overflow: hidden;
+}
+
+.carousel-open:checked + .carousel-item {
+    position: static;
+    opacity: 100;
+}
+
+.carousel-control {
+    width: 40px;
+    height: 40px;
+    background: black;
+    border-radius: 50%;
+    color: #fff;
+    border: #fff 2px solid;
+    cursor: pointer;
+    display: none;
+    font-size: 15px;
+    line-height: 35px;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+}
+
+.carousel-control.prev {
+    left: 400px;
+}
+.carousel-control.next {
+    right: 400px;
+}
+
+.carousel-control:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: red;
+}
+
+#carousel-1:checked ~ .control-1,
+#carousel-2:checked ~ .control-2,
+#carousel-3:checked ~ .control-3,
+#carousel-4:checked ~ .control-4,
+#carousel-5:checked ~ .control-5,
+#carousel-6:checked ~ .control-6 {
+    display: block;
+}
+  
+    </style>
+</body>
+</html>
