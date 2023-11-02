@@ -104,10 +104,10 @@ body {
     overflow: hidden;
 }
 
-.carousel-open:checked + .carousel-item {
+/* .carousel-open:checked + .carousel-item {
     position: static;
     opacity: 100;
-}
+} */
 
 .carousel-control {
     width: 40px;
